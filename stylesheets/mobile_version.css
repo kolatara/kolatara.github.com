@@ -36,9 +36,8 @@ body {
 	list-style: none;
 }
 
-.header li {
-	whitespace: nowrap;
-	padding: 0;
+.navbar li{
+	display: block
 }
 
 .navbar a:link {
@@ -52,10 +51,9 @@ body {
 
 .navbar li {
 	float: left;
-	min-width: 100px;
 	text-align: center;
 	color: white;
-	line-height: 80px;
+	line-height: 10px;
 	margin: 0px auto;
 }
 
