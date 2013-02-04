@@ -8,7 +8,6 @@ body {
 #full-back-img {
 	z-index: -999;
   	min-height: 100%;
- 	min-width: 1024px;
  	width: 100%;
   	height: auto;
   	position: fixed;
@@ -26,7 +25,7 @@ body {
 	height: 100%;
 	width: 200px;
 	color: white;
-	font-size: 30 pt;
+	font-size: 30pt;
 	font-weight: bold;
 	position: fixed;
 }
@@ -37,6 +36,11 @@ body {
 	max-height: 800px;
 	margin: 0px auto;
 	list-style: none;
+}
+
+.navbar li: after{
+	content: '\a';
+	white-space:pre;
 }
 
 .navbar a:link {
@@ -58,7 +62,7 @@ body {
 }
 
 .content {
-	margin-left: 200px;
+	margin-left: 100px;
 	position: absolute;
 	margin-top: 50px;
 	max-width: 600px;
