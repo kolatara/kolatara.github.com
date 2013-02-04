@@ -6,10 +6,9 @@ body {
 }
 
 #full-back-img {
-	z-index: -999;
-  	min-height: 100%;
-	min-width: 100%
-   	height: auto;
+	z-index: -5000;
+  	height: 100%;
+	width: 100%
   	position: fixed;
   	top: 0;
   	left: 0;
