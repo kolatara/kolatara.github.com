@@ -59,7 +59,7 @@ body {
 .content {
 	height: 100%;
 	position: absolute;
-	margin-left: 10px;
+	margin-left: 10%;
 	margin-top: 100px;
 	max-width: 580px;
 	color: #40031C;
