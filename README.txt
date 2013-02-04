@@ -1,1 +1,8 @@
-This page contains index.html, bio.html, and resume.html for the homepage, bio page, and resume page. It uses 2 CSS files, one for mobile and one for screen display. 
+1) Correctly implemented: 
+	3 html files: index.html, bio.html, resume.html
+	2 css files: screen_version.css, mobile_version.css
+	All have been validated without errors (some warnings with html)
+2) No collaboration
+
+3) ~3-4 hrs
+
