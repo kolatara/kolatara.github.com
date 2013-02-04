@@ -68,8 +68,9 @@ body {
 	height: 1681px;
 	position: absolute;
 	margin-top: 100px;
-	max-width: 700px;
+	max-width: 600px;
 	color: #40031C;
+	line-height: 30px;
 }
 
 a {

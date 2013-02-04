@@ -5,4 +5,71 @@ body {
 	width: 100%;
 }
 
+#full-back-img {
+	z-index: -999;
+  	min-height: 100%;
+ 	min-width: 1024px;
+ 	width: 100%;
+  	height: auto;
+  	position: fixed;
+  	top: 0;
+  	left: 0;
+}
+
+.text-back img {
+	opacity: 0.4;
+}
+
+.header {
+	z-index: 997;
+	background-color: #4A0722;
+	height: 100%;
+	width: 200px;
+	color: white;
+	font-size: 30 pt;
+	font-weight: bold;
+	position: fixed;
+}
+
+.navbar {
+	z-index: 999;
+	min-height: 500px;
+	max-height: 800px;
+	margin: 0px auto;
+	list-style: none;
+}
+
+.navbar a:link {
+	color: white;
+}
+
+.navbar a:visited {
+	color: white;
+}
+
+
+.navbar li {
+	float: left;
+	min-width: 100px;
+	text-align: center;
+	color: white;
+	line-height: 80px;
+	margin: 0px auto;
+}
+
+.content {
+	margin-left: 200px;
+	position: absolute;
+	margin-top: 50px;
+	max-width: 600px;
+	color: #40031C;
+	line-height: 30px;
+	font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+
 
