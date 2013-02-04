@@ -42,6 +42,14 @@ body {
 	list-style: none;
 }
 
+.navbar a:link {
+	color: white;
+}
+
+.navbar a:visited {
+	color: white;
+}
+
 .navbar li {
 	float: left;
 	width: 20%;
@@ -50,7 +58,6 @@ body {
 	color: white;
 	font-size: 10pt;
 	max-width: 300px;
-
 	line-height: 80px;
 	margin: 0px auto;
 }
@@ -66,14 +73,6 @@ body {
 }
 
 a {
-	font-weight: bold;
 	text-decoration: none;
 }
 
-a:link{
-	color: #17215E;
-}
-
-a:visited {
-	color: #41145E;
-}
