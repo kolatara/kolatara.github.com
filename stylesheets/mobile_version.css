@@ -23,7 +23,7 @@ body {
 	z-index: 997;
 	background-color: #4A0722;
 	height: 100%;
-	width: 200px;
+	width: 100px;
 	color: white;
 	font-size: 30pt;
 	font-weight: bold;
@@ -38,7 +38,7 @@ body {
 	list-style: none;
 }
 
-.navbar li: after{
+.header li:before{
 	content: '\a';
 	white-space:pre;
 }
