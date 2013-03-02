@@ -190,8 +190,8 @@ function calculateClosest()
 		var R = 6371; // km
 		var dLat = toRad(myLat-lat);
 		var dLon = toRad(myLng-lng);
-		var lat1 = toRad(lat1);
-		var lat2 = toRad(lat2);
+		var lat1 = toRad(lat);
+		var lat2 = toRad(myLat);
 		var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * 
 			Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
