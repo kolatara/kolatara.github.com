@@ -65,11 +65,8 @@ function renderMap()
 		position: me,
 		title: "Your position"
 	});
-	marker.setMap(map);
-	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.setContent(yourData);
-		infowindow.open(map, marker);
-		});
+	infowindow.setContent(yourData);
+	infowindow.open(map, marker);
 }
 
 function renderStations()
@@ -150,6 +147,7 @@ function renderStations()
 					current = this;
 					var boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
+
 					boxText.innerHTML = this.title;
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
@@ -196,14 +194,13 @@ function calculateClosest()
 			Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 		var d = R * c;
-		console.log(dLat+" "+dLon+" "+lat1+" "+lat2+" "+a+" "+c+" "+" "+d);
 		if (m == 0) {
 			closest.station = markers[m].title;
 			closest.distance = d;
 		}
 		else if (d < closest.distance) {
 			closest.station = markers[m].title;
-			closest.distance = d/.6;
+			closest.distance = d/1.6;
 		}
 	}
 }
