@@ -88,3 +88,4 @@ var myOptions = {
 					infowindow.open(map, this);
 				});
       }
+window.onload = init;
