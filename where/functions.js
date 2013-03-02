@@ -128,10 +128,12 @@ function renderStations()
 	for(var m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
-					stopName = this.title;
 					current = this;
-					infowindow.setContent(stopName);
-					infowindow.open(map, current);
+					var boxText = document.createElement("div");
+					boxText.setAttribute("class", "infobox");
+					boxText.innerHTML = this.title;
+					var ib = new InfoBox(boxText);
+					ib.open(map, current);
 					});
 	}					
 }
