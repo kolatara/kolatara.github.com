@@ -21,9 +21,6 @@ function init()
 {
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	getMyLocation();
-	renderMap();
-	renderStations();
-	renderPolyLine();
 }
 
 function getMyLocation()
@@ -32,6 +29,7 @@ function getMyLocation()
 		navigator.geolocation.getCurrentPosition(function(position) {
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
+		renderMap();
 		});
 	}
 	else {
@@ -52,8 +50,9 @@ function renderMap()
 		infowindow.setContent(marker.title);
 		infowindow.open(map, marker);
 		});
+	renderStations();
+	renderPolyLine();
 }
-
 function renderStations()
 {
 	ticon = "images/t_icon.png";
