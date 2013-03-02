@@ -58,7 +58,7 @@ function renderMap()
 	//calculate closest
 	calculateClosest();
 	//sets info box content
-	para.innerHTML = "The closest station to you is <b>" + closest.station + "</b> which is approximately " + closest.distance + " away from you.";
+	para.innerHTML = "The closest station to you is <b>" + closest.station + "</b> which is approximately " + closest.distance + " miles away from you.";
 	yourData.appendChild(para);	
 	//render marker for individual
 	marker = new google.maps.Marker({
@@ -203,7 +203,7 @@ function calculateClosest()
 		}
 		else if (d < closest.distance) {
 			closest.station = markers[m].title;
-			closest.distance = d;
+			closest.distance = d/.6;
 		}
 	}
 }
