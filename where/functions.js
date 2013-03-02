@@ -16,6 +16,8 @@ var redStations = [];
 var redBranchAshmont = [];
 var redBranchBraintree = [];
 var markers = [];
+var closest;
+var yourData;
 
 function init()
 {
@@ -41,18 +43,36 @@ function renderMap()
 {
 	me = new google.maps.LatLng(myLat, myLng);
 	map.panTo(me);
+	//creates element referencing location with "You are here"
+	yourData = document.createElement("div");
+	contents.setAttribute("class", "infobox");
+	var title = document.createElement("h2");
+	title.innerHTML = "You are here";
+	contents.appendChild(title);
+	var para = document.createElement("p");
+
+	//renders stations and polyline
+	renderStations();
+	renderPolyLine();
+
+	//calculate closest
+	calculateClosest();
+	//sets info box content
+	para.innerHTML = "The closest station to you is <b>" + closest.station + "</b> which is approximately " + closest.distance + " away from you.";
+	contents.appendChild(para);	
+
+	//render marker for individual
 	marker = new google.maps.Marker({
 		position: me,
-		title: "You are here"
+		title: contents;
 	});
 	marker.setMap(map);
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.setContent(marker.title);
 		infowindow.open(map, marker);
 		});
-	renderStations();
-	renderPolyLine();
 }
+
 function renderStations()
 {
 	tico = "images/t_icon.png";
@@ -163,19 +183,27 @@ function renderPolyLine()
 		redLineBraintree.setMap(map);
 }
 
-
-/*
-function createMarker(place)
+function calculateClosest()
 {
-				var placeLoc = place.geometry.location;
-				var marker = new google.maps.Marker({
-					map: map,
-					position: place.geometry.location
-				});
+	for(var m in markers) {
+		var lat = markers[m].position.lat();
+		var lng = markers[m].position.lng();
+		var R = 6371; // km
+		var dLat = (myLat-lat).toRad();
+		var dLon = (myLng-lng).toRad();
+		var lat1 = lat.toRad();
+		var lat2 = lat.toRad();
+		var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * 
+			Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+		var d = R * c;
+		if (m == 0) {
+			closest.station = markers[m].title;
+			closest.distance = d;
+		}
+		else if (d < closest.distance) {
+			closest.station = markers[m].title;
+			closest.distance = d;
+		}
+}
 
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.close();
-					infowindow.setContent(place.name);
-					infowindow.open(map, this);
-				});
-      }*/
