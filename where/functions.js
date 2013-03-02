@@ -200,7 +200,8 @@ function calculateClosest()
 		}
 		else if (d < closest.distance) {
 			closest.station = markers[m].title;
-			closest.distance = d/1.6;
+			var output = new Number(d/1.6);
+			closest.distance = output.toPrecision(3);
 		}
 	}
 }
