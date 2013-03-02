@@ -1,10 +1,11 @@
 body{
-	background-color: blue;
+	background-color: #E7E8DC;
 	margin-left: 25%;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
 }
 
 h1{
-	color: red; 
+	color: #0E18A1;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif; 
+	margin-bottom: 200px;
 }
