@@ -54,13 +54,13 @@ function renderMap()
 	//renders stations and polyline
 	renderStations();
 	renderPolyLine();
-
+/*
 	//calculate closest
 	calculateClosest();
 	//sets info box content
 	para.innerHTML = "The closest station to you is <b>" + closest.station + "</b> which is approximately " + closest.distance + " away from you.";
 	contents.appendChild(para);	
-
+*/
 	//render marker for individual
 	marker = new google.maps.Marker({
 		position: me,
@@ -182,7 +182,7 @@ function renderPolyLine()
 		});
 		redLineBraintree.setMap(map);
 }
-
+/*
 function calculateClosest()
 {
 	for(var m in markers) {
@@ -206,4 +206,4 @@ function calculateClosest()
 			closest.distance = d;
 		}
 }
-
+*/
