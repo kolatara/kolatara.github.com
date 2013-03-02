@@ -2,18 +2,19 @@ body{
 	background-color: #F7F7F5;
 	margin-left: 25%;
 	font-weight: 300;
+	color: #08055E;
 }
 
 h1{
-	color: #08055E;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif; 
-	margin-bottom: 30px;
-	margin-top: 30px;
-	margin-left: 30%;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial,sans-serif; 
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-left: 27%;
 }
 
 #map_canvas{
 	border-style: solid;
 	border-width: 10px;
 	border-color: #08055E;
+	margin-bottom: 10px;
 }
