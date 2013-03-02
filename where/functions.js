@@ -204,5 +204,6 @@ function calculateClosest()
 			closest.station = markers[m].title;
 			closest.distance = d;
 		}
+	}
 }
 
