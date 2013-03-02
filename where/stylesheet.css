@@ -1,6 +1,5 @@
 body{
 	background-color: #F7F7F5;
-	margin-left: 25%;
 	font-weight: 300;
 	color: #08055E;
 }
@@ -9,10 +8,12 @@ h1{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", Helvetica, Arial,sans-serif; 
 	margin-bottom: 20px;
 	margin-top: 20px;
+	margin-left: 30%
 }
 
 #map_canvas{
 	border-style: solid;
 	border-width: 10px;
 	border-color: #08055E;
+	margin-left: 25%
 }
