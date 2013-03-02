@@ -64,11 +64,11 @@ function renderMap()
 	//render marker for individual
 	marker = new google.maps.Marker({
 		position: me,
-		title: contents;
+		title: "Your position";
 	});
 	marker.setMap(map);
 	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.setContent(marker.title);
+		infowindow.setContent(contents);
 		infowindow.open(map, marker);
 		});
 }
