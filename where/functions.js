@@ -45,10 +45,10 @@ function renderMap()
 	map.panTo(me);
 	//creates element referencing location with "You are here"
 	yourData = document.createElement("div");
-	contents.setAttribute("class", "infobox");
+	yourData.setAttribute("class", "infobox");
 	var title = document.createElement("h2");
 	title.innerHTML = "You are here";
-	contents.appendChild(title);
+	yourData.appendChild(title);
 	var para = document.createElement("p");
 
 	//renders stations and polyline
@@ -68,7 +68,7 @@ function renderMap()
 	});
 	marker.setMap(map);
 	google.maps.event.addListener(marker, 'click', function() {
-		infowindow.setContent(contents);
+		infowindow.setContent(yourData);
 		infowindow.open(map, marker);
 		});
 }
