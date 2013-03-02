@@ -196,6 +196,7 @@ function calculateClosest()
 			Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 		var d = R * c;
+		console.log(d);
 		if (m == 0) {
 			closest.station = markers[m].title;
 			closest.distance = d;
