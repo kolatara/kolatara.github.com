@@ -5,7 +5,14 @@ body{
 }
 
 h1{
-	color: #0E18A1;
+	color: #F7F7F5;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", sans-serif; 
-	margin-bottom: 200px;
+	margin-bottom: 75px;
+	text-align: center;
+}
+
+#map_canvas{
+	border-style: solid;
+	border-width: 10px;
+	border-color: #F7F7F5;
 }
