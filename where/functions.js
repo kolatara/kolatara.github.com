@@ -55,7 +55,7 @@ function renderMap()
 }
 function renderStations()
 {
-	ticon = "images/t_icon.png";
+	tico = "images/t_icon.png";
 
 				pt = new google.maps.LatLng(42.395428, -71.142483);
 				markers.push(new google.maps.Marker({position: pt, title: "Alewife Station", icon: tico}));
