@@ -25,6 +25,7 @@ function getMyLocation()
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
 		renderMap();
+		alert("Map rendering complete");
 		});
 	}
 	else {
