@@ -56,8 +56,10 @@ function renderMap()
 	renderPolyLine();
 
 	//calculate closest
-	calculateClosest();
+//	calculateClosest();
 	//sets info box content
+	closest.station = "davis";
+	closest.distance = 10;
 	para.innerHTML = "The closest station to you is <b>" + closest.station + "</b> which is approximately " + closest.distance + " away from you.";
 	yourData.appendChild(para);	
 	//render marker for individual
@@ -181,7 +183,7 @@ function renderPolyLine()
 		});
 		redLineBraintree.setMap(map);
 }
-
+/*
 function calculateClosest()
 {
 	for(var m in markers) {
@@ -204,5 +206,5 @@ function calculateClosest()
 			closest.station = markers[m].title;
 			closest.distance = d;
 		}
-}
+}*/
 
