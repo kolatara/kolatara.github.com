@@ -16,7 +16,7 @@ var redStations = [];
 var redBranchAshmont = [];
 var redBranchBraintree = [];
 var markers = [];
-var closest;
+var closest = new Object;
 var yourData;
 
 function init()
