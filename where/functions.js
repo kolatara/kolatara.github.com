@@ -132,8 +132,8 @@ function renderStations()
 					var boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
 					boxText.innerHTML = this.title;
-					var ib = new InfoBox(boxText);
-					ib.open(map, current);
+					infowindow.setContent(boxText);
+					infowindow.open(map, current);
 					});
 	}					
 }
