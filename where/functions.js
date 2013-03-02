@@ -127,6 +127,12 @@ function renderStations()
 					redBranchBraintree.push(pt);
 	for(var m in markers) {
 		markers[m].setMap(map);
+		google.maps.event.addListener(markers[m], 'click', function() {
+					stopName = this.title;
+					current = this;
+					infowindow.setContent(stopName);
+					infowindow.open(map, current);
+					});
 	}					
 }
 
