@@ -14,7 +14,6 @@ var places;
 
 function init()
 {
-	console.log("initializing");
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	getMyLocation();
 }
@@ -26,7 +25,6 @@ function getMyLocation()
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
 		renderMap();
-		console.log("Map rendering complete");
 		});
 	}
 	else {
@@ -36,7 +34,6 @@ function getMyLocation()
 
 function renderMap()
 {
-	console.log("Inside render map");
 	me = new google.maps.LatLng(myLat, myLng);
 
 				// Update map and go there...
