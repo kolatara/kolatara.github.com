@@ -6,7 +6,7 @@ var request = new XMLHttpRequest();
 var me = new google.maps.LatLng(myLat, myLng);
 var centerMBTA = new google.maps.LatLng(42.330497742, -71.095794678);
 var myOptions = {
-	zoom: 9,
+	zoom: 11,
 	center: centerMBTA,
 	mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
