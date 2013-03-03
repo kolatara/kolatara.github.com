@@ -332,7 +332,7 @@ function loadCharacters(request)
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + charac.title + '</b>';
-				boxText = '<p>' + characters[c]["name"] + ' is approximately ' + calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]) + ' away from you.</p>'
+				boxText = '<p> Waldo is approximately ' + calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]) + ' away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, charac);
 				});
@@ -350,7 +350,7 @@ function loadCharacters(request)
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + charac.title + '</b>';
-				boxText = '<p>' + characters[c]["name"] + ' is approximately ' + calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]) + ' away from you.</p>'
+				boxText = '<p> Carmen Sandiego is approximately ' + calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]) + ' away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, charac);
 				});
