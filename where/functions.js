@@ -293,15 +293,20 @@ function renderCharacters()
 	if (request == null) {
   		document.write("Sorry! AJAX is not supported on your browser");
 	}
-	request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
-	request.send(null);
+
 	request.onreadystatechange = function(){
-			if (request.readyState == 4 && request.status == 200) {
-				 loadCharacters(request);
-			} else {
+			if (request.readyState < 4) {
+				return;
+			}
+			if (request.status !== 200) {
 				document.write("Error");
+			} 
+			if (request.reqdyState === 4) {
+				loadCharacters(request);
 			}
 	}
+	request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
+	request.send(null);
 }
 
 function loadCharacters(request)
