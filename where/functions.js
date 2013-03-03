@@ -18,6 +18,7 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
+var boxText;
 
 var trainKey = {N:"Northbound", S:"Southbound"};
 
@@ -150,7 +151,7 @@ function renderStations()
 					current = this;
 					boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = '<h3>this.title<h3>';
+					boxText = '<b>' this.title '</b>';
 					loadTrains();
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
