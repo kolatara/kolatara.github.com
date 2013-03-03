@@ -184,7 +184,7 @@ if (request == null) {
 }
 
 function callback() {
-	console.log("in callback);
+	console.log("in callback");
 	if (request.readyState == 4 && request.status == 200) {
 		trains = JSON.parse(request.responseText);
 		if(trains.length > 0) {
