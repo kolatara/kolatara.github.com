@@ -199,16 +199,16 @@ if (request == null) {
 			boxText += '<tr><td>' + "RALEN".substring(4,5) + 
 				   '</td><td> 0.5 </td></tr>';
 			boxText += '</table>';
-			boxText +='<p> HELLO</p>';*/
+			boxText +='<p> HELLO</p>';
 
 		} else {
 			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
-		}
-        }
-	else {
+		}*/
+   	
+	} else {
 		boxText+="<p>Sorry. There was an error loading train data</p>";
 	}
-}
+	}
 
 function renderPolyLine()
 {
