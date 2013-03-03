@@ -6,7 +6,7 @@ var request = new XMLHttpRequest();
 var me = new google.maps.LatLng(myLat, myLng);
 var centerMBTA = new google.maps.LatLng(42.330497742, -71.095794678);
 var myOptions = {
-	zoom: 13,
+	zoom: 9,
 	center: centerMBTA,
 	mapTypeId: google.maps.MapTypeId.ROADMAP
 		};
@@ -75,7 +75,6 @@ function renderMap()
 	infowindow.open(map, marker);
 
 	//render Carmen and Waldo
-	console.log("Hello!");
 	renderCharacters();
 }
 
@@ -275,7 +274,6 @@ function toRad(value)
 
 function renderCharacters()
 {
-	console.log("In render characters");
 	try {
 		request = new XMLHttpRequest();
 	}
@@ -303,7 +301,6 @@ function renderCharacters()
 				return;
 			}
 			if (request.status !== 200) {
-				document.write("Error");
 				return;
 			} 
 			if (request.readyState === 4) {
@@ -316,10 +313,8 @@ function renderCharacters()
 
 function loadCharacters(request)
 {
-	console.log("YAY");
 	characters = JSON.parse(request.responseText);
 	for(var c = 0; c < characters.length; c++) {
-		console.log("Hey o ");
 		if(characters[c]["name"] == "Waldo") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
 			charac = new google.maps.Marker({
@@ -338,6 +333,5 @@ function loadCharacters(request)
 			});
 			charac.setMap(map);
 		}
-		console.log(characters[c]["name"]);
 	}
 }
