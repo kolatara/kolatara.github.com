@@ -75,6 +75,7 @@ function renderMap()
 	infowindow.open(map, marker);
 
 	//render Carmen and Waldo
+	console.log("Hello!");
 	renderCharacters();
 }
 
@@ -274,6 +275,7 @@ function toRad(value)
 
 function renderCharacters()
 {
+	console.log("In render characters");
 	try {
 		request = new XMLHttpRequest();
 	}
@@ -294,7 +296,8 @@ function renderCharacters()
   		document.write("Sorry! AJAX is not supported on your browser");
 	}
 
-	request.onreadystatechange = function(){
+	request.onreadystatechange = ready;
+	function ready(){
 			if (request.readyState < 4) {
 				return;
 				console.log("Here I am, once again");
