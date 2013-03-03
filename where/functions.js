@@ -51,8 +51,8 @@ function renderMap()
 	//creates element referencing location with "You are here"
 	yourData = document.createElement("div");
 	yourData.setAttribute("id", "personInfo");
-	var title = document.createElement("h2");
-	title.innerHTML = "You are here";
+	var title = document.createElement("p");
+	title.innerHTML = "<b>You are here</b>";
 	yourData.appendChild(title);
 	var para = document.createElement("p");
 
@@ -246,25 +246,29 @@ function calculateClosest()
 	for(var m in markers) {
 		var lat = markers[m].position.lat();
 		var lng = markers[m].position.lng();
-		var R = 6371; // km
-		var dLat = toRad(myLat-lat);
-		var dLon = toRad(myLng-lng);
-		var lat1 = toRad(lat);
-		var lat2 = toRad(myLat);
-		var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * 
-			Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
-		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
-		var d = R * c;
 		if (m == 0) {
 			closest.station = markers[m].title;
-			closest.distance = d;
+			closest.distance = calculateDistance(lat, lng);
 		}
 		else if (d < closest.distance) {
 			closest.station = markers[m].title;
-			var output = new Number(d/1.6);
+			var output = new Number(calculateDistance(lat, lng));
 			closest.distance = output.toPrecision(3);
 		}
 	}
+}
+
+function calculateDistance(lat, lng)
+{
+	var R = 6371; // km
+	var dLat = toRad(myLat-lat);
+	var dLon = toRad(myLng-lng);	
+	var lat1 = toRad(lat);
+	var lat2 = toRad(myLat);
+	var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * 
+		Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+	var d = R * c / 1.6;
 }
 
 function toRad(value) 
@@ -323,6 +327,14 @@ function loadCharacters(request)
 			icon: "images/waldo.png"
 			});
 			charac.setMap(map);
+			google.maps.event.addListener(charac, 'click', function() {
+				boxText = document.createElement("div");
+				boxText.setAttribute("class", "infobox");
+				boxText = '<b>' + charac.title + '</b>';
+				infowindow.setContent(boxText);
+				infowindow.open(map, charac);
+				});
+
 		}
 		if(characters[c]["name"] == "Carmen Sandiego") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
