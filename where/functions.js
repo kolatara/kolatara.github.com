@@ -322,19 +322,21 @@ function loadCharacters(request)
 		console.log("Hey o ");
 		if(characters[c]["name"] == "Waldo") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
-			char = new google.maps.Marker({
+			charac = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
 			icon: "images/waldo.png"
 			});
+			charac.setMap(map);
 		}
 		if(characters[c]["name"] == "Carmen Sandiego") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
-			char = new google.maps.Marker({
+			charac = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
 			icon: "images/carmen.png"
 			});
+			charac.setMap(map);
 		}
 		console.log(characters[c]["name"]);
 	}
