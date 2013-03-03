@@ -336,7 +336,7 @@ function loadCharacters(request)
 				boxText = '<b>' + waldo.title + '</b>';
 				boxText += '<p> Waldo is approximately ' + dist + ' away from you.</p>'
 				infowindow.setContent(boxText);
-				infowindow.open(map, charac);
+				infowindow.open(map, waldo);
 				});
 
 		}
@@ -356,7 +356,7 @@ function loadCharacters(request)
 				boxText = '<b>' + carm.title + '</b>';
 				boxText += '<p> Carmen Sandiego is approximately ' + dist + ' away from you.</p>'
 				infowindow.setContent(boxText);
-				infowindow.open(map, charac);
+				infowindow.open(map, carm);
 				});
 		}
 	}
