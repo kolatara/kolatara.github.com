@@ -176,7 +176,7 @@ function loadTrains() {
   	}
 }
 if (request == null) {
-  	alert("Sorry! AJAX is not supported on your browser");
+  	boxText+= "<p>Sorry! AJAX is not supported on your browser</p>";
 }
 	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	request.send(null);
@@ -206,7 +206,7 @@ function callback() {
 		}
         }
 	else {
-		alert("Sorry. There was an error");
+		boxText+="<p>Sorry. There was an error loading train data</p>";
 	}
 }
 
