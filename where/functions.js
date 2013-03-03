@@ -253,8 +253,7 @@ function calculateClosest()
 		}
 		else if (dist < closest.distance) {
 			closest.station = markers[m].title;
-			var output = new Number(dist);
-			closest.distance = output.toPrecision(3);
+			closest.distance = dist;
 		}
 	}
 }
@@ -270,7 +269,8 @@ function calculateDistance(lat, lng)
 		Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 	var d = R * c / 1.6;
-	return d;
+	var output = new Number(dist);
+	return output.toPrecision(3);
 }
 
 function toRad(value) 
@@ -322,7 +322,7 @@ function loadCharacters(request)
 	for(var c = 0; c < characters.length; c++) {
 		if(characters[c]["name"] == "Waldo") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
-			dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
+			var dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
 			waldo = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
@@ -339,23 +339,25 @@ function loadCharacters(request)
 				infowindow.open(map, charac);
 				});
 
-		}/*
+		}
 		if(characters[c]["name"] == "Carmen Sandiego") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
-			charac = new google.maps.Marker({
+			var dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
+			carm = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
 			icon: "images/carmen.png"
 			});
-			charac.setMap(map);
-			google.maps.event.addListener(charac, 'click', function() {
+			carm.setMap(map);
+			google.maps.event.addListener(carm, 'click', function() {
+			//FIX LONG AND LAT
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
-				boxText = '<b>' + charac.title + '</b>';
-				boxText = '<p> Carmen Sandiego is approximately ' + calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]) + ' away from you.</p>'
+				boxText = '<b>' + carm.title + '</b>';
+				boxText += '<p> Carmen Sandiego is approximately ' + dist + ' away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, charac);
 				});
-		}*/
+		}
 	}
 }
