@@ -297,6 +297,7 @@ function renderCharacters()
 	request.onreadystatechange = function(){
 			if (request.readyState < 4) {
 				return;
+				console.log("Here I am, once again");
 			}
 			if (request.status !== 200) {
 				document.write("Error");
