@@ -305,7 +305,7 @@ function renderCharacters()
 			if (request.status !== 200) {
 				document.write("Error");
 			} 
-			if (request.reqdyState === 4) {
+			if (request.readyState === 4) {
 				loadCharacters(request);
 			}
 	}
