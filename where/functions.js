@@ -299,11 +299,12 @@ function renderCharacters()
 	request.onreadystatechange = ready;
 	function ready(){
 			if (request.readyState < 4) {
-				return;
 				console.log("Here I am, once again");
+				return;
 			}
 			if (request.status !== 200) {
 				document.write("Error");
+				return;
 			} 
 			if (request.readyState === 4) {
 				loadCharacters(request);
