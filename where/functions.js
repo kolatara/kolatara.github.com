@@ -198,7 +198,7 @@ function callback() {
 			boxText += '</table>';
 
 		} else {
-			boxText.innerHTML += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
+			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
 		}
         }
 	else {
