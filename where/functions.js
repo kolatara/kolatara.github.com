@@ -329,10 +329,12 @@ function loadCharacters(request)
 			});
 			charac.setMap(map);
 			google.maps.event.addListener(charac, 'click', function() {
+			//FIX LONG AND LAT
+				dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + charac.title + '</b>';
-				boxText = '<p> Waldo is approximately ' + calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]) + ' away from you.</p>'
+				boxText = '<p> Waldo is approximately ' + dist + ' away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, charac);
 				});
