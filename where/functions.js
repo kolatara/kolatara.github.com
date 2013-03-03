@@ -323,23 +323,23 @@ function loadCharacters(request)
 		if(characters[c]["name"] == "Waldo") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
 			dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
-			charac = new google.maps.Marker({
+			waldo = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
 			icon: "images/waldo.png"
 			});
-			charac.setMap(map);
-			google.maps.event.addListener(charac, 'click', function() {
+			waldo.setMap(map);
+			google.maps.event.addListener(waldo, 'click', function() {
 			//FIX LONG AND LAT
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
-				boxText = '<b>' + charac.title + '</b>';
-				boxText = '<p> Waldo is approximately ' + dist + ' away from you.</p>'
+				boxText = '<b>' + waldo.title + '</b>';
+				boxText += '<p> Waldo is approximately ' + dist + ' away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, charac);
 				});
 
-		}
+		}/*
 		if(characters[c]["name"] == "Carmen Sandiego") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
 			charac = new google.maps.Marker({
@@ -356,6 +356,6 @@ function loadCharacters(request)
 				infowindow.setContent(boxText);
 				infowindow.open(map, charac);
 				});
-		}
+		}*/
 	}
 }
