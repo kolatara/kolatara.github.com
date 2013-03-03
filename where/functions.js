@@ -311,6 +311,7 @@ function renderCharacters()
 
 function loadCharacters(request)
 {
+	console.log("YAY");
 	characters = JSON.parse(request.responseText);
 	for(var c; c < characters.length; c++) {
 		if(characters[c]["name"] == "Waldo") {
