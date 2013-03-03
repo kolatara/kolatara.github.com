@@ -180,13 +180,15 @@ if (request == null) {
 }
 	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	request.send(null);
-	requestonreadystatechange = callback;
+	request.onreadystatechange = callback;
 }
 
 function callback() {
+	console.log("in callback);
 	if (request.readyState == 4 && request.status == 200) {
 		trains = JSON.parse(request.responseText);
 		if(trains.length > 0) {
+			console.log("trains>0");
 			boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
 			for(var i = 0; i < trains.length; i++) {
 				/*if(markers[m].title == trainKey[trains[i]["PlatformKey"]] && 
