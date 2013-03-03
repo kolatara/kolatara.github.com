@@ -197,7 +197,7 @@ function callback() {
 						   '</td><td>' + trains[i]['Time'] + '</td></tr>';
 				}
 			}*/
-			boxText += '<tr><td>' + RALEN.substring(4,5)] + 
+			boxText += '<tr><td>' + RALEN.substring(4,5) + 
 				   '</td><td> 0.5 </td></tr>';
 			boxText += '</table>';
 
