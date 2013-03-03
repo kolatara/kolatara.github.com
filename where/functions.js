@@ -322,6 +322,7 @@ function loadCharacters(request)
 	for(var c = 0; c < characters.length; c++) {
 		if(characters[c]["name"] == "Waldo") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
+			dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
 			charac = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
@@ -330,7 +331,6 @@ function loadCharacters(request)
 			charac.setMap(map);
 			google.maps.event.addListener(charac, 'click', function() {
 			//FIX LONG AND LAT
-				dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + charac.title + '</b>';
