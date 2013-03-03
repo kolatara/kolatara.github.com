@@ -335,5 +335,6 @@ function loadCharacters(request)
 			icon: "images/carmen.png"
 			});
 		}
+		console.log(characters[c]["name"]);
 	}
 }
