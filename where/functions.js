@@ -346,6 +346,14 @@ function loadCharacters(request)
 			icon: "images/carmen.png"
 			});
 			charac.setMap(map);
+			google.maps.event.addListener(charac, 'click', function() {
+				boxText = document.createElement("div");
+				boxText.setAttribute("class", "infobox");
+				boxText = '<b>' + charac.title + '</b>';
+				boxText = '<p>' + characters[c]["name"] + ' is approximately ' + calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]) + ' away from you.</p>'
+				infowindow.setContent(boxText);
+				infowindow.open(map, charac);
+				});
 		}
 	}
 }
