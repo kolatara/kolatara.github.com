@@ -30,7 +30,7 @@ function init()
 
 function getMyLocation()
 {
-	if (navigator.geolocation) { // the navigator.geolocation object is supported on your browser
+	if (navigator.geolocation) { 
 		navigator.geolocation.getCurrentPosition(function(position) {
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
