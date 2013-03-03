@@ -152,6 +152,7 @@ function renderStations()
 					boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
 					boxText = '<b>' + this.title + '</b>';
+					boxText +='<p>trying121243</p>';
 					loadTrains();
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
@@ -190,7 +191,7 @@ function callback() {
 		trains = JSON.parse(request.responseText);
 		if(trains.length > 0) {
 			console.log("trains>0");
-			boxText += '<table id="schedule"><tr><th>Direction</th><th>Time till Arrival</th></tr>';
+			//boxText += '<table id="schedule"><tr><th>Direction</th><th>Time till Arrival</th></tr>';
 			/*for(var i = 0; i < trains.length; i++) {
 				if(markers[m].title == trainKey[trains[i]["PlatformKey"]] && 
 				   trains[i]["InformationType"] == "Predicted") {
