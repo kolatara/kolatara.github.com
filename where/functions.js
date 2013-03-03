@@ -150,7 +150,7 @@ function renderStations()
 					current = this;
 					boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = this.title;
+					boxText = '<h3>this.title<h3>';
 					loadTrains();
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
@@ -200,6 +200,7 @@ function callback() {
 			boxText += '<tr><td>' + "RALEN".substring(4,5) + 
 				   '</td><td> 0.5 </td></tr>';
 			boxText += '</table>';
+			boxText +='<p> HELLO</p>';
 
 		} else {
 			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
