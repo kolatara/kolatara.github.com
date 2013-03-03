@@ -153,7 +153,8 @@ function renderStations()
 					boxText.setAttribute("class", "infobox");
 					boxText = '<b>' + this.title + '</b>';
 					boxText +='<p>trying121243</p>';
-					loadTrains();
+					trains = loadTrains();
+					alert(trains);
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
 					});
@@ -182,27 +183,23 @@ if (request == null) {
 }
 	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	request.send(null);
-	request.onreadystatechange = callback;
-}
-
-function callback() {
-	console.log("in callback");
-	if (request.readyState == 4 && request.status == 200) {
-		trains = JSON.parse(request.responseText);
-		if(trains.length > 0) {
+	request.onreadystatechange = function(){
+			if (request.readyState == 4 && request.status == 200) {
+				 return JSON.parse(request.responseText);
+		/*if(trains.length > 0) {
 			console.log("trains>0");
 			//boxText += '<table id="schedule"><tr><th>Direction</th><th>Time till Arrival</th></tr>';
-			/*for(var i = 0; i < trains.length; i++) {
+			for(var i = 0; i < trains.length; i++) {
 				if(markers[m].title == trainKey[trains[i]["PlatformKey"]] && 
 				   trains[i]["InformationType"] == "Predicted") {
 					boxText += '<tr><td>' + trainKey[trains[i]['PlatformKey'].substring(4,5)] + 
 						   '</td><td>' + trains[i]['Time'] + '</td></tr>';
 				}
-			}*/
-			/*boxText += '<tr><td>' + "RALEN".substring(4,5) + 
+			}
+			boxText += '<tr><td>' + "RALEN".substring(4,5) + 
 				   '</td><td> 0.5 </td></tr>';
-			boxText += '</table>';*/
-			boxText +='<p> HELLO</p>';
+			boxText += '</table>';
+			boxText +='<p> HELLO</p>';*/
 
 		} else {
 			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
