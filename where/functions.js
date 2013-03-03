@@ -1,3 +1,5 @@
+//SEE LINE 157 FOR WHERE YOU LEFT OFF. YOU ARE TRYING TO GET THE MAP TO SHOW THE TRAIN SCHEDULE. 
+
 var myLat = 0;
 var myLng = 0;
 var request = new XMLHttpRequest();
@@ -18,9 +20,9 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
-var boxText;
+//var boxText;
 
-var trainKey = {N:"Northbound", S:"Southbound"};
+//var trainKey = {N:"Northbound", S:"Southbound"};
 
 function init()
 {
@@ -71,6 +73,9 @@ function renderMap()
 	marker.setMap(map);
 	infowindow.setContent(yourData);
 	infowindow.open(map, marker);
+
+	//render Carmen and Waldo
+	renderCharacters();
 }
 
 function renderStations()
@@ -153,14 +158,14 @@ function renderStations()
 					boxText.setAttribute("class", "infobox");
 					boxText = '<b>' + this.title + '</b>';
 					boxText +='<p>trying121243</p>';
-					trains = loadTrains();
-					alert(trains);
+					//trains = JSON.parse(loadTrains());
+					//alert(trains);
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
 					});
 	}					
 }
-
+/*
 function loadTrains() {
 	try {
 		request = new XMLHttpRequest();
@@ -185,8 +190,8 @@ function loadTrains() {
 	request.send(null);
 	request.onreadystatechange = function(){
 			if (request.readyState == 4 && request.status == 200) {
-				 return JSON.parse(request.responseText);
-		/*if(trains.length > 0) {
+				 return request.responseText;
+		if(trains.length > 0) {
 			console.log("trains>0");
 			//boxText += '<table id="schedule"><tr><th>Direction</th><th>Time till Arrival</th></tr>';
 			for(var i = 0; i < trains.length; i++) {
@@ -203,13 +208,13 @@ function loadTrains() {
 
 		} else {
 			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
-		}*/
+		}
    	
 	} else {
 		boxText+="<p>Sorry. There was an error loading train data</p>";
 	}
 	}
-}
+}*/
 
 function renderPolyLine()
 {
@@ -262,7 +267,62 @@ function calculateClosest()
 	}
 }
 
-function toRad(value) {
+function toRad(value) 
+{
 	return value * Math.PI / 180;
 }
 
+function renderCharacters()
+{
+	try {
+		request = new XMLHttpRequest();
+	}
+	catch (ms1) {   
+		try {
+    			request = new ActiveXObject("Msxml2.XMLHTTP");
+  		}
+  		catch (ms2) {
+    			try {
+      				request = new ActiveXObject("Microsoft.XMLHTTP");
+    			}
+    			catch (ex) {
+      				request = null;
+    			}
+  	}
+	}
+	if (request == null) {
+  		document.write("Sorry! AJAX is not supported on your browser");
+	}
+	request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
+	request.send(null);
+	request.onreadystatechange = function(){
+			if (request.readyState == 4 && request.status == 200) {
+				 loadCharacters(request);
+			} else {
+				document.write("Sorry. There was an error loading train data");
+			}
+	}
+}
+
+function loadCharacters(request)
+{
+	characters = JSON.parse(request.responseText);
+	for(var c; c < characters.length; c++) {
+		if(characters[c]["name"] == "Waldo") {
+			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
+			char = new google.maps.Marker({
+			position: here,
+			title: characters[c]["loc"]["note"],
+			icon: "images/waldo.png"
+			});
+		}
+		if(characters[c]["name"] == "Carmen Sandiego") {
+			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
+			char = new google.maps.Marker({
+			position: here,
+			title: characters[c]["loc"]["note"],
+			icon: "images/carmen.png"
+			});
+		}
+	}
+}
