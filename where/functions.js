@@ -246,13 +246,14 @@ function calculateClosest()
 	for(var m in markers) {
 		var lat = markers[m].position.lat();
 		var lng = markers[m].position.lng();
+		var dist = calculateDistance(lat, lng);
 		if (m == 0) {
 			closest.station = markers[m].title;
-			closest.distance = calculateDistance(lat, lng);
+			closest.distance = dist;
 		}
-		else if (d < closest.distance) {
+		else if (dist < closest.distance) {
 			closest.station = markers[m].title;
-			var output = new Number(calculateDistance(lat, lng));
+			var output = new Number(dist);
 			closest.distance = output.toPrecision(3);
 		}
 	}
@@ -269,6 +270,7 @@ function calculateDistance(lat, lng)
 		Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
 	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 	var d = R * c / 1.6;
+	return d;
 }
 
 function toRad(value) 
