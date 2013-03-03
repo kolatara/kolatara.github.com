@@ -299,7 +299,7 @@ function renderCharacters()
 			if (request.readyState == 4 && request.status == 200) {
 				 loadCharacters(request);
 			} else {
-				document.write("Sorry. There was an error loading train data");
+				alert("No Carmen and Waldo!");
 			}
 	}
 }
