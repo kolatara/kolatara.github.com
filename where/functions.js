@@ -322,7 +322,7 @@ function loadCharacters(request)
 	for(var c = 0; c < characters.length; c++) {
 		if(characters[c]["name"] == "Waldo") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
-			var dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
+			var distW =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
 			waldo = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
@@ -334,7 +334,7 @@ function loadCharacters(request)
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + waldo.title + '</b>';
-				boxText += '<p> Waldo is approximately ' + dist + ' away from you.</p>'
+				boxText += '<p> Waldo is approximately ' + distW + ' away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, waldo);
 				});
@@ -342,7 +342,7 @@ function loadCharacters(request)
 		}
 		if(characters[c]["name"] == "Carmen Sandiego") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
-			var dist =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
+			var distC =  calculateDistance(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]); 
 			carm = new google.maps.Marker({
 			position: here,
 			title: characters[c]["loc"]["note"],
@@ -354,7 +354,7 @@ function loadCharacters(request)
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + carm.title + '</b>';
-				boxText += '<p> Carmen Sandiego is approximately ' + dist + ' away from you.</p>'
+				boxText += '<p> Carmen Sandiego is approximately ' + distC + ' away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, carm);
 				});
