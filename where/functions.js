@@ -299,7 +299,7 @@ function renderCharacters()
 			if (request.readyState == 4 && request.status == 200) {
 				 loadCharacters(request);
 			} else {
-				alert("No Carmen and Waldo!");
+				document.write("Error");
 			}
 	}
 }
