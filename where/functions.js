@@ -19,6 +19,8 @@ var markers = [];
 var closest = new Object;
 var yourData;
 
+var trainKey = {N:"Northbound", S:"Southbound"};
+
 function init()
 {
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -141,18 +143,67 @@ function renderStations()
 				pt = new google.maps.LatLng(42.2078543, -71.0011385);
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
-	for(var m in markers) {
+	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
 					current = this;
-					var boxText = document.createElement("div");
+					boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-
-					boxText.innerHTML = this.title;
+					boxText = this.title;
+					loadTrains();
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
 					});
 	}					
+}
+
+function loadTrains() {
+	try {
+		request = new XMLHttpRequest();
+	}
+	catch (ms1) {   
+		try {
+    			request = new ActiveXObject("Msxml2.XMLHTTP");
+  		}
+  		catch (ms2) {
+    			try {
+      				request = new ActiveXObject("Microsoft.XMLHTTP");
+    			}
+    			catch (ex) {
+      				request = null;
+    			}
+  	}
+}
+if (request == null) {
+  	alert("Sorry! AJAX is not supported on your browser");
+}
+	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+	request.send(null);
+	requestonreadystatechange = callback;
+}
+
+function callback() {
+	if (request.readyState == 4 && request.status == 200) {
+		trains = JSON.parse(request.responseText);
+		if(trains.length > 0) {
+			boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
+			for(var i = 0; i < trains.length; i++) {
+				/*if(markers[m].title == trainKey[trains[i]["PlatformKey"]] && 
+				   trains[i]["InformationType"] == "Predicted") {
+					boxText += '<tr><td>' + trainKey[trains[i]['PlatformKey'].substring(4,5)] + 
+						   '</td><td>' + trains[i]['Time'] + '</td></tr>';
+				}*/
+			boxText += '<tr><td>' + trainKey[trains[i]['PlatformKey'].substring(4,5)] + 
+				   '</td><td> 0.5 </td></tr>';
+			boxText += '</table>';
+
+		} else {
+			boxText.innerHTML += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
+		}
+        }
+	else {
+		alert("Sorry. There was an error");
+	}
 }
 
 function renderPolyLine()
@@ -191,7 +242,7 @@ function calculateClosest()
 		var lat1 = toRad(lat);
 		var lat2 = toRad(myLat);
 		var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.sin(dLon/2) * 
-			Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+			Math.sin(dLon/2) * Math.cos(lat1) * Matih.cos(lat2); 
 		var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
 		var d = R * c;
 		if (m == 0) {
