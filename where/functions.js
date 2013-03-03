@@ -196,6 +196,7 @@ function callback() {
 			boxText += '<tr><td>' + trainKey[trains[i]['PlatformKey'].substring(4,5)] + 
 				   '</td><td> 0.5 </td></tr>';
 			boxText += '</table>';
+			}
 
 		} else {
 			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
