@@ -67,6 +67,7 @@ function renderMap()
 		position: me,
 		title: "Your position"
 	});
+	marker.setMap(map);
 	infowindow.setContent(yourData);
 	infowindow.open(map, marker);
 }
