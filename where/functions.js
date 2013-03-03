@@ -189,17 +189,18 @@ function callback() {
 		trains = JSON.parse(request.responseText);
 		if(trains.length > 0) {
 			console.log("trains>0");
-			boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
-			for(var i = 0; i < trains.length; i++) {
-				/*if(markers[m].title == trainKey[trains[i]["PlatformKey"]] && 
+			boxText += '<table id="schedule"><tr><th>Direction</th><th>Time till Arrival</th></tr>';
+			/*for(var i = 0; i < trains.length; i++) {
+				if(markers[m].title == trainKey[trains[i]["PlatformKey"]] && 
 				   trains[i]["InformationType"] == "Predicted") {
 					boxText += '<tr><td>' + trainKey[trains[i]['PlatformKey'].substring(4,5)] + 
 						   '</td><td>' + trains[i]['Time'] + '</td></tr>';
-				}*/
+				}
+			}*/
 			boxText += '<tr><td>' + trainKey[trains[i]['PlatformKey'].substring(4,5)] + 
 				   '</td><td> 0.5 </td></tr>';
 			boxText += '</table>';
-			}
+			
 
 		} else {
 			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
