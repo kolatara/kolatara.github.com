@@ -76,7 +76,7 @@ function renderMap()
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.setContent(yourData);
 		infowindow.open(map, marker);
-	}
+	});
 
 	//render Carmen and Waldo
 	renderCharacters();
