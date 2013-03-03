@@ -151,7 +151,7 @@ function renderStations()
 					current = this;
 					boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = '<b>' this.title '</b>';
+					boxText = '<b>' + this.title + '</b>';
 					loadTrains();
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
