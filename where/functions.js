@@ -318,8 +318,8 @@ function loadCharacters(request)
 {
 	console.log("YAY");
 	characters = JSON.parse(request.responseText);
-	for(var c; c < characters.length; c++) {
-		console.log("Hey o " + c);
+	for(var c = 0; c < characters.length; c++) {
+		console.log("Hey o ");
 		if(characters[c]["name"] == "Waldo") {
 			here = new google.maps.LatLng(characters[c]["loc"]["latitude"],characters[c]["loc"]["longitude"]);
 			char = new google.maps.Marker({
