@@ -334,7 +334,7 @@ function loadCharacters(request)
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + waldo.title + '</b>';
-				boxText += '<p> Waldo is approximately ' + distW + ' away from you.</p>'
+				boxText += '<p> Waldo is approximately ' + distW + ' miles away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, waldo);
 				});
@@ -354,7 +354,7 @@ function loadCharacters(request)
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + carm.title + '</b>';
-				boxText += '<p> Carmen Sandiego is approximately ' + distC + ' away from you.</p>'
+				boxText += '<p> Carmen Sandiego is approximately ' + distC + ' miles away from you.</p>'
 				infowindow.setContent(boxText);
 				infowindow.open(map, carm);
 				});
