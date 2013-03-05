@@ -20,6 +20,7 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
+var trains;
 var trainKeys = {
 	N: "Northbound",
 	S: "Southbound",
@@ -176,9 +177,8 @@ function renderStations()
 				pt = new google.maps.LatLng(42.2078543, -71.0011385);
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
-	
-	trainData = loadTrains();
-	var trains = JSON.parse(trainData);
+	loadTrains();	
+	console.log(trains);
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
@@ -226,7 +226,9 @@ function loadTrains()
 				return;
 			} 
 			if (data.readyState === 4) {
-				return data.responseText;
+				function (data){
+				trains=JSON.parse(data.responseText);
+				}
 			}
 	}
 	request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
