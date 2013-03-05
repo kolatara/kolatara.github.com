@@ -179,7 +179,6 @@ function renderStations()
 					redBranchBraintree.push(pt);
 	loadTrains();	
 	console.log('parsed');
-	console.log(
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
