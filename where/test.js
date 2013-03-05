@@ -235,7 +235,7 @@ function loadTrains()
 
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
-	console.log(trains[0]);
+	console.log('hey oh!');
 }
 
 function renderPolyLine()
