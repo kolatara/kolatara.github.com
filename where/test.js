@@ -228,7 +228,7 @@ function parseData(data) {
 					for(t in trains) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m][title]) {
-					boxText += '<tr><td>'+ trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trainKeys[trains[t]["PlatformKey"].substring(0,4)] '</td>';
+					boxText += '<tr><td>'+ trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trainKeys[trains[t]["PlatformKey"].substring(0,4)] + '</td>';
 					}
 					}
 					boxText += '</table>';
