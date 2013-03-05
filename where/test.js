@@ -177,8 +177,8 @@ function renderStations()
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
 	
-	trains = loadTrains();
-	trains = JSON.parse(trains);
+	trainData = loadTrains();
+	var trains = JSON.parse(trainData);
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
