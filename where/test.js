@@ -229,7 +229,7 @@ function parseData(data) {
 					}
 					boxText += '</table>';
 					infowindow.setContent(boxText);
-					infowindow.open(map, markers[m]);
+					infowindow.open(map, this);
 				});
 	}				
 }
