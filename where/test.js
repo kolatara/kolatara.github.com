@@ -53,7 +53,10 @@ var trainKeys = {
 function init()
 {
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	renderStations();
+	renderPolyLine();
 	getMyLocation();
+	renderCharacters();
 }
 
 function getMyLocation()
@@ -62,7 +65,7 @@ function getMyLocation()
 		navigator.geolocation.getCurrentPosition(function(position) {
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
-		renderMap();
+		renderPerson();
 		});
 	}
 	else {
@@ -70,7 +73,7 @@ function getMyLocation()
 	}
 }
 
-function renderMap()
+function renderPerson()
 {
 	me = new google.maps.LatLng(myLat, myLng);
 	map.panTo(me);
@@ -81,10 +84,6 @@ function renderMap()
 	title.innerHTML = "<b>You are here</b>";
 	yourData.appendChild(title);
 	var para = document.createElement("p");
-
-	//renders stations and polyline
-	renderStations();
-	renderPolyLine();
 
 	//calculate closest
 	calculateClosest();
@@ -103,9 +102,6 @@ function renderMap()
 		infowindow.setContent(yourData);
 		infowindow.open(map, marker);
 	});
-
-	//render Carmen and Waldo
-	renderCharacters();
 }
 
 function renderStations()
