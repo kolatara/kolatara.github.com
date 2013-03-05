@@ -222,7 +222,7 @@ function parseData(data) {
 					boxText = '<b>' + this.title + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
 					for(var t = 0; t < trains.length; t++) {
-					console.log(markers[m]['title']);
+					console.log(markers[m].title);
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
 					console.log(trains[t]["PlatformKey"].substring(0,4));
