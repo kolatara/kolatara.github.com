@@ -218,6 +218,7 @@ function loadTrains()
 	}
 
 	data.onreadystatechange = ready;
+	console.log(data.readyState);
 	function ready(){
 			if (data.readyState < 4) {
 				return;
