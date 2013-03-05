@@ -230,10 +230,10 @@ function parseData(data) {
 						== markers[m][title]) {
 					boxText += '<tr><td>'+ trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trainKeys[trains[t]["PlatformKey"].substring(0,4)] '</td>';
 					}
+					}
 					boxText += '</table>';
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
-					}
 				});
 	}				
 }
