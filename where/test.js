@@ -52,7 +52,6 @@ function init()
 	renderStations();
 	renderPolyLine();
 	getMyLocation();
-	renderCharacters();
 }
 
 function getMyLocation()
@@ -62,6 +61,7 @@ function getMyLocation()
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
 		renderPerson();
+		renderCharacters();
 		});
 	}
 	else {
@@ -214,7 +214,7 @@ function loadTrainSchedule()
 
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
-	for(var m = 0; m < markers.length; m++) {
+	for( m = 0; m < markers.length; m++) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
 					var boxText = document.createElement("div");
