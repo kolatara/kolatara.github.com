@@ -175,24 +175,10 @@ function renderStations()
 				pt = new google.maps.LatLng(42.2078543, -71.0011385);
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
-	loadTrains();	
-	for(m in markers) {
-		markers[m].setMap(map);
-		google.maps.event.addListener(markers[m], 'click', function() {
-					current = this;
-					boxText = document.createElement("div");
-					boxText.setAttribute("class", "infobox");
-					boxText = '<b>' + this.title + '</b>';
-					boxText +='<p>trying121243</p>';
-					//trains = JSON.parse(loadTrains());
-					//alert(trains);
-					infowindow.setContent(boxText);
-					infowindow.open(map, current);
-					});
-	}					
+	loadTrainSchedule();			
 }
 
-function loadTrains()
+function loadTrainSchedule()
 {
 	try {
 		data = new XMLHttpRequest();
@@ -231,7 +217,18 @@ function loadTrains()
 
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
-	console.log(markers);	
+	for(m in markers) {
+		markers[m].setMap(map);
+		google.maps.event.addListener(markers[m], 'click', function() {
+					current = this;
+					boxText = document.createElement("div");
+					boxText.setAttribute("class", "infobox");
+					boxText = '<b>' + this.title + '</b>';
+					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
+					infowindow.setContent(boxText);
+					infowindow.open(map, current);
+					});
+	}				
 }
 
 function renderPolyLine()
