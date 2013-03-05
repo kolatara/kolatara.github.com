@@ -224,9 +224,10 @@ function parseData(data) {
 					boxText.setAttribute("class", "infobox");
 					boxText = '<b>' + this.title + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
-					for(t in trains) {
+					for(int t = 0; t < trains.length; t++) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
+					console.log(trains[t]["PlatformKey"].substring(0,4));
 					boxText += '<tr><td>' + trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trains[t]["TimeRemaining"] + '</td></tr>';
 					}
 					}
