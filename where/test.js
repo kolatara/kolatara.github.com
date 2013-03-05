@@ -217,19 +217,20 @@ function parseData(data) {
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
+					current = this;
 					var boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = '<b>' + markers[m].title + '</b>';
+					boxText = '<b>' + current.title + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
 					for(var t = 0; t < trains.length; t++) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
-						== markers[m].title && trains[t]["InformationType"] == "Predicted") {
+						== current.title && trains[t]["InformationType"] == "Predicted") {
 					boxText += '<tr><td>' + trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trains[t]["TimeRemaining"] + '</td></tr>';
 					}
 					}
 					boxText += '</table>';
 					infowindow.setContent(boxText);
-					infowindow.open(map, this);
+					infowindow.open(map, current);
 				});
 	}				
 }
