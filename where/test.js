@@ -220,14 +220,14 @@ function parseData(data) {
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
-					current = this;
-					boxText = document.createElement("div");
+					var boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
 					boxText = '<b>' + this.title + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
 					for(t in trains) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
+			console.log(markers[m]['title]);
 					boxText += '<tr><td>' + trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trains[t]["TimeRemaining"];
 					}
 					}
