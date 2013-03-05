@@ -56,7 +56,6 @@ function init()
 	renderStations();
 	renderPolyLine();
 	getMyLocation();
-	renderCharacters();
 }
 
 function getMyLocation()
@@ -66,6 +65,7 @@ function getMyLocation()
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
 		renderPerson();
+		renderCharacters();
 		});
 	}
 	else {
