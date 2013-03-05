@@ -43,7 +43,7 @@ var trainKeys = {
 	RWOL: "Wollaston Station",
 	RQUC: "Quincy Center Station",
 	RQUA: "Quincy Adams Station",
-	RBRA: "Braintree Station"
+	//RBRA: "Braintree Station",
 	};
 //var boxText;
 
