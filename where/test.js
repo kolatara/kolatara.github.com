@@ -224,8 +224,7 @@ function parseData(data) {
 					for(var t = 0; t < trains.length; t++) {
 					console.log(markers[m].title);
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
-						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
-					console.log(trains[t]["PlatformKey"].substring(0,4));
+						== markers[m]['title'] /*&& trains[t]["InformationType"] == "Predicted"*/) {
 					boxText += '<tr><td>' + trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trains[t]["TimeRemaining"] + '</td></tr>';
 					}
 					}
