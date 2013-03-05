@@ -214,14 +214,13 @@ function loadTrainSchedule()
 
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
-	for(m in markers) {
+	for(var m = 0; m < markers.length; m++) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
 					var boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = '<b>' + this.title + '</b>';
+					boxText = '<b>' + markers[m].title + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
-					console.log(markers[m].title);
 					for(var t = 0; t < trains.length; t++) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
@@ -230,7 +229,7 @@ function parseData(data) {
 					}
 					boxText += '</table>';
 					infowindow.setContent(boxText);
-					infowindow.open(map, this);
+					infowindow.open(map, markers[m]);
 				});
 	}				
 }
