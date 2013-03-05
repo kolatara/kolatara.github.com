@@ -214,7 +214,7 @@ function loadTrainSchedule()
 
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
-	for( m = 0; m < markers.length; m++) {
+	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
 					var boxText = document.createElement("div");
