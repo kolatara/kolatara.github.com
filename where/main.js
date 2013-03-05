@@ -2,7 +2,6 @@
 
 var myLat = 0;
 var myLng = 0;
-var request = new XMLHttpRequest();
 var me = new google.maps.LatLng(myLat, myLng);
 var centerMBTA = new google.maps.LatLng(42.330497742, -71.095794678);
 var myOptions = {
@@ -20,14 +19,38 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
-var trains;
-//var boxText;
-
-//var trainKey = {N:"Northbound", S:"Southbound"};
+var trainKeys = {
+	N: "Northbound",
+	S: "Southbound",
+	RALE: "Alewife Station",
+	RDAV: "Davis Station",
+	RPOR: "Porter Square Station",
+	RHAR: "Harvard Square Station",
+	RCEN: "Central Square Station",
+	RKEN: "Kendall/MIT Station",
+	RMGH: "Charles/MGH Station",
+	RPRK: "Park St. Station",
+	RDTC: "Downtown Crossing Station",
+	RSOU: "South Station",
+	RBRO: "Broadway Station",
+	RAND: "Andrew Station",
+	RJFK: "JFK/UMass Station",
+	RSAV: "Savin Hill Station",
+	RFIE: "Fields Corner Station",
+	RSHA: "Shawmut Station",
+	RASH: "Ashmont Station",
+	RNQU: "North Quincy Station",
+	RWOL: "Wollaston Station",
+	RQUC: "Quincy Center Station",
+	RQUA: "Quincy Adams Station",
+	RBRA: "Braintree Station",
+	};
 
 function init()
 {
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	renderStations();
+	renderPolyLine();
 	getMyLocation();
 }
 
@@ -37,7 +60,8 @@ function getMyLocation()
 		navigator.geolocation.getCurrentPosition(function(position) {
 		myLat = position.coords.latitude;
 		myLng = position.coords.longitude;
-		renderMap();
+		renderPerson();
+		renderCharacters();
 		});
 	}
 	else {
@@ -45,7 +69,7 @@ function getMyLocation()
 	}
 }
 
-function renderMap()
+function renderPerson()
 {
 	me = new google.maps.LatLng(myLat, myLng);
 	map.panTo(me);
@@ -56,10 +80,6 @@ function renderMap()
 	title.innerHTML = "<b>You are here</b>";
 	yourData.appendChild(title);
 	var para = document.createElement("p");
-
-	//renders stations and polyline
-	renderStations();
-	renderPolyLine();
 
 	//calculate closest
 	calculateClosest();
@@ -77,10 +97,7 @@ function renderMap()
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.setContent(yourData);
 		infowindow.open(map, marker);
-	}
-
-	//render Carmen and Waldo
-	//renderCharacters();
+	});
 }
 
 function renderStations()
@@ -155,57 +172,68 @@ function renderStations()
 				pt = new google.maps.LatLng(42.2078543, -71.0011385);
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
+	loadTrainSchedule();			
+}
 
-//	str = loadTrains();
-//	trains = JSON.parse(str);
+function loadTrainSchedule()
+{
+	try {
+		data = new XMLHttpRequest();
+	}
+	catch (ms1) {   
+		try {
+    			data = new ActiveXObject("Msxml2.XMLHTTP");
+  		}
+  		catch (ms2) {
+    			try {
+      				data = new ActiveXObject("Microsoft.XMLHTTP");
+    			}
+    			catch (ex) {
+      				data = null;
+    			}
+  	}
+	}
+	if (data == null) {
+  		document.write("Sorry! AJAX is not supported on your browser");
+	}
+	data.onreadystatechange = check;
+	function check(){
+			if (data.readyState < 4) {
+				return;
+			}
+			if (data.status !== 200) {
+				return;
+			} 
+			if (data.readyState === 4) {
+				parseData(data);				
+			}
+	}
+	data.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+	data.send(null);
+}
+
+function parseData(data) {
+	trains = JSON.parse(data.responseText);
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
 					current = this;
-					boxText = document.createElement("div");
+					var boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = '<b>' + this.title + '</b>';	
+					boxText = '<b>' + current.title + '</b>';
+					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
+					for(var t = 0; t < trains.length; t++) {
+						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
+						== current.title && trains[t]["InformationType"] == "Predicted") {
+					boxText += '<tr><td>' + trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trains[t]["TimeRemaining"] + '</td></tr>';
+					}
+					}
+					boxText += '</table>';
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
-					});
-	}					
+				});
+	}				
 }
-/*
-function loadTrains() {
-	try {
-		request = new XMLHttpRequest();
-	}
-	catch (ms1) {   
-		try {
-    			request = new ActiveXObject("Msxml2.XMLHTTP");
-  		}
-  		catch (ms2) {
-    			try {
-      				request = new ActiveXObject("Microsoft.XMLHTTP");
-    			}
-    			catch (ex) {
-      				request = null;
-    			}
-  	}
-	}
-	if (request == null) {
-  		alert("Sorry! AJAX is not supported on your browser");
-	}
-	request.onreadystatechange = ready;
-	function ready(){
-			if (request.readyState < 4) {
-				return;
-			}
-			if (request.status !== 200) {
-				return;
-			} 
-			if (request.readyState === 4) {
-				return request.responseText;
-			}
-	}
-	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-	request.send(null);
-}*/
 
 function renderPolyLine()
 {
@@ -268,7 +296,7 @@ function toRad(value)
 {
 	return value * Math.PI / 180;
 }
-/*
+
 function renderCharacters()
 {
 	try {
@@ -349,4 +377,4 @@ function loadCharacters(request)
 				});
 		}
 	}
-}*/
+}
