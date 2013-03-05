@@ -156,8 +156,8 @@ function renderStations()
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
 
-	str = loadTrains();
-	trains = JSON.parse(str);
+//	str = loadTrains();
+//	trains = JSON.parse(str);
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
@@ -170,7 +170,7 @@ function renderStations()
 					});
 	}					
 }
-
+/*
 function loadTrains() {
 	try {
 		request = new XMLHttpRequest();
@@ -205,7 +205,7 @@ function loadTrains() {
 	}
 	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	request.send(null);
-}
+}*/
 
 function renderPolyLine()
 {
