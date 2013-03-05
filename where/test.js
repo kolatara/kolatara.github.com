@@ -226,13 +226,15 @@ function loadTrains()
 				return;
 			} 
 			if (data.readyState === 4) {
-				function (data){
-				trains=JSON.parse(data.responseText);
-				}
+				parseData(data);				
 			}
 	}
 	request.open("GET", "http://messagehub.herokuapp.com/a3.json", true);
 	request.send(null);
+}
+
+function parseData(data) {
+	trains = JSON.parse(data.responseText);
 }
 
 function renderPolyLine()
