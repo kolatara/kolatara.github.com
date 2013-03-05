@@ -20,6 +20,7 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
+var trains;
 //var boxText;
 
 //var trainKey = {N:"Northbound", S:"Southbound"};
@@ -76,7 +77,7 @@ function renderMap()
 	google.maps.event.addListener(marker, 'click', function() {
 		infowindow.setContent(yourData);
 		infowindow.open(map, marker);
-	});
+	}
 
 	//render Carmen and Waldo
 	renderCharacters();
@@ -154,22 +155,22 @@ function renderStations()
 				pt = new google.maps.LatLng(42.2078543, -71.0011385);
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
+
+	str = loadTrains();
+	trains = JSON.parse(str);
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
 					current = this;
 					boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = '<b>' + this.title + '</b>';
-					boxText +='<p>trying121243</p>';
-					//trains = JSON.parse(loadTrains());
-					//alert(trains);
+					boxText = '<b>' + this.title + '</b>';	
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
 					});
 	}					
 }
-/*
+
 function loadTrains() {
 	try {
 		request = new XMLHttpRequest();
@@ -188,37 +189,23 @@ function loadTrains() {
   	}
 	}
 	if (request == null) {
-  		boxText+= "<p>Sorry! AJAX is not supported on your browser</p>";
+  		alert("Sorry! AJAX is not supported on your browser");
+	}
+	request.onreadystatechange = ready;
+	function ready(){
+			if (request.readyState < 4) {
+				return;
+			}
+			if (request.status !== 200) {
+				return;
+			} 
+			if (request.readyState === 4) {
+				return request.responseText;
+			}
 	}
 	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
 	request.send(null);
-	request.onreadystatechange = function(){
-			if (request.readyState == 4 && request.status == 200) {
-				 return request.responseText;
-		if(trains.length > 0) {
-			console.log("trains>0");
-			//boxText += '<table id="schedule"><tr><th>Direction</th><th>Time till Arrival</th></tr>';
-			for(var i = 0; i < trains.length; i++) {
-				if(markers[m].title == trainKey[trains[i]["PlatformKey"]] && 
-				   trains[i]["InformationType"] == "Predicted") {
-					boxText += '<tr><td>' + trainKey[trains[i]['PlatformKey'].substring(4,5)] + 
-						   '</td><td>' + trains[i]['Time'] + '</td></tr>';
-				}
-			}
-			boxText += '<tr><td>' + "RALEN".substring(4,5) + 
-				   '</td><td> 0.5 </td></tr>';
-			boxText += '</table>';
-			boxText +='<p> HELLO</p>';
-
-		} else {
-			boxText += "<p>Sorry. There are no predicted trains arriving at this station.</p>";
-		}
-   	
-	} else {
-		boxText+="<p>Sorry. There was an error loading train data</p>";
-	}
-	}
-}*/
+}
 
 function renderPolyLine()
 {
@@ -334,7 +321,6 @@ function loadCharacters(request)
 			});
 			waldo.setMap(map);
 			google.maps.event.addListener(waldo, 'click', function() {
-			//FIX LONG AND LAT
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + waldo.title + '</b>';
@@ -354,7 +340,6 @@ function loadCharacters(request)
 			});
 			carm.setMap(map);
 			google.maps.event.addListener(carm, 'click', function() {
-			//FIX LONG AND LAT
 				boxText = document.createElement("div");
 				boxText.setAttribute("class", "infobox");
 				boxText = '<b>' + carm.title + '</b>';
