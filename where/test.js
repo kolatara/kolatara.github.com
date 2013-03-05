@@ -228,8 +228,6 @@ function parseData(data) {
 					for(t in trains) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m]['title']) {
-					console.log(trains[t]["PlatformKey"].substring(0,4));
-					console.log(markers[m]['title']);
 					boxText += '<tr><td>'+ markers[m]['title'] + '</td><td>' + trainKeys[trains[t]["PlatformKey"].substring(0,4)] + '</td>';
 					}
 					}
