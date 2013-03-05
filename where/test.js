@@ -218,6 +218,7 @@ function loadTrainSchedule()
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
 	for(m in markers) {
+		var thisMarker=this;
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
 					var boxText = document.createElement("div");
@@ -232,7 +233,7 @@ function parseData(data) {
 					}
 					boxText += '</table>';
 					infowindow.setContent(boxText);
-					infowindow.open(map, current);
+					infowindow.open(map, thisMarker);
 				});
 	}				
 }
