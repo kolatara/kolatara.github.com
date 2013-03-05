@@ -212,7 +212,7 @@ function loadTrains()
     			}
   	}
 	}
-	if (request == null) {
+	if (data == null) {
   		document.write("Sorry! AJAX is not supported on your browser");
 	}
 	console.log("checking readystate");
