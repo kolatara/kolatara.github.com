@@ -177,6 +177,7 @@ function renderStations()
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
 	loadTrains();	
+	console.log(trains[0]["Line"]);
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
@@ -195,7 +196,6 @@ function renderStations()
 
 function loadTrains()
 {
-	console.log('inside load trains');
 	try {
 		data = new XMLHttpRequest();
 	}
@@ -215,7 +215,6 @@ function loadTrains()
 	if (data == null) {
   		document.write("Sorry! AJAX is not supported on your browser");
 	}
-	console.log("checking readystate");
 	data.onreadystatechange = check;
 	function check(){
 			if (data.readyState < 4) {
@@ -234,7 +233,6 @@ function loadTrains()
 
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
-	console.log('hey oh!');
 }
 
 function renderPolyLine()
