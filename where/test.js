@@ -227,7 +227,6 @@ function parseData(data) {
 					for(t in trains) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
-			console.log(markers[m]['title]);
 					boxText += '<tr><td>' + trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trains[t]["TimeRemaining"] + '</td></tr>';
 					}
 					}
