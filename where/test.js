@@ -3,6 +3,7 @@
 var myLat = 0;
 var myLng = 0;
 var request = new XMLHttpRequest();
+var data = new XMLHttpRequest();
 var me = new google.maps.LatLng(myLat, myLng);
 var centerMBTA = new google.maps.LatLng(42.330497742, -71.095794678);
 var myOptions = {
@@ -221,15 +222,12 @@ function loadTrains()
 	console.log(data.readyState);
 	function ready(){
 			if (data.readyState < 4) {
-				console.log(data.readyState);
 				return;
 			}
 			if (data.status !== 200) {
-				console.log(data.readyState);
 				return;
 			} 
 			if (data.readyState === 4) {
-				console.log('about to parse');
 				parseData(data);				
 			}
 	}
