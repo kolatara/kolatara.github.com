@@ -221,9 +221,11 @@ function loadTrains()
 	console.log(data.readyState);
 	function ready(){
 			if (data.readyState < 4) {
+				console.log(data.readyState);
 				return;
 			}
 			if (data.status !== 200) {
+				console.log(data.readyState);
 				return;
 			} 
 			if (data.readyState === 4) {
