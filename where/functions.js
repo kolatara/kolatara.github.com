@@ -80,7 +80,7 @@ function renderMap()
 	}
 
 	//render Carmen and Waldo
-	renderCharacters();
+	//renderCharacters();
 }
 
 function renderStations()
@@ -268,7 +268,7 @@ function toRad(value)
 {
 	return value * Math.PI / 180;
 }
-
+/*
 function renderCharacters()
 {
 	try {
@@ -349,4 +349,4 @@ function loadCharacters(request)
 				});
 		}
 	}
-}
+}*/
