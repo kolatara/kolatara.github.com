@@ -178,7 +178,6 @@ function renderStations()
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
 	loadTrains();	
-	console.log('parsed');
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
@@ -197,6 +196,7 @@ function renderStations()
 
 function loadTrains()
 {
+	console.log('inside load trains');
 	try {
 		data = new XMLHttpRequest();
 	}
@@ -226,6 +226,7 @@ function loadTrains()
 				return;
 			} 
 			if (data.readyState === 4) {
+				console.log('about to parse');
 				parseData(data);				
 			}
 	}
