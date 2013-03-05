@@ -219,11 +219,11 @@ function parseData(data) {
 		google.maps.event.addListener(markers[m], 'click', function() {
 					var boxText = document.createElement("div");
 					boxText.setAttribute("class", "infobox");
-					boxText = '<b>' + markers[m]['title'] + '</b>';
+					boxText = '<b>' + markers[m][title] + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
 					for(var t = 0; t < trains.length; t++) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
-						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
+						== markers[m][title] && trains[t]["InformationType"] == "Predicted") {
 					boxText += '<tr><td>' + trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trains[t]["TimeRemaining"] + '</td></tr>';
 					}
 					}
