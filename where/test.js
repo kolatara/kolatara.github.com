@@ -226,10 +226,10 @@ function parseData(data) {
 					boxText = '<b>' + this.title + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
 					for(t in trains) {
-						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
-					 	   == markers[m][title]) {
+						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] == markers[m][title]) {
 							boxText += '<tr><td>'+ trainKeys[trains[t]["PlatformKey"].substring(4,5)] + '</td><td>' + trainKeys[trains[t]["PlatformKey"].substring(0,4)] '</td>';
 					}
+					boxText += '</table>';
 					infowindow.setContent(boxText);
 					infowindow.open(map, current);
 					});
