@@ -2,8 +2,6 @@
 
 var myLat = 0;
 var myLng = 0;
-var request = new XMLHttpRequest();
-var data = new XMLHttpRequest();
 var me = new google.maps.LatLng(myLat, myLng);
 var centerMBTA = new google.maps.LatLng(42.330497742, -71.095794678);
 var myOptions = {
@@ -217,10 +215,9 @@ function loadTrains()
 	if (request == null) {
   		document.write("Sorry! AJAX is not supported on your browser");
 	}
-
-	data.onreadystatechange = ready;
-	console.log(data.readyState);
-	function ready(){
+	console.log("checking readystate");
+	data.onreadystatechange = check;
+	function check(){
 			if (data.readyState < 4) {
 				return;
 			}
@@ -231,8 +228,8 @@ function loadTrains()
 				parseData(data);				
 			}
 	}
-	request.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
-	request.send(null);
+	data.open("GET", "http://mbtamap-cedar.herokuapp.com/mapper/redline.json", true);
+	data.send(null);
 }
 
 function parseData(data) {
