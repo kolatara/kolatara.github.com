@@ -20,7 +20,7 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
-var trains;
+var trains = new Object;
 var trainKeys = {
 	N: "Northbound",
 	S: "Southbound",
