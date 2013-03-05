@@ -19,7 +19,6 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
-var trains = new Object;
 var trainKeys = {
 	N: "Northbound",
 	S: "Southbound",
@@ -177,7 +176,6 @@ function renderStations()
 				markers.push(new google.maps.Marker({position: pt, title: "Braintree Station", icon: tico}));
 					redBranchBraintree.push(pt);
 	loadTrains();	
-	console.log(trains[0]);
 	for(m in markers) {
 		markers[m].setMap(map);
 		google.maps.event.addListener(markers[m], 'click', function() {
@@ -233,6 +231,7 @@ function loadTrains()
 
 function parseData(data) {
 	trains = JSON.parse(data.responseText);
+	console.log(trains[0]["Line"]);	
 }
 
 function renderPolyLine()
