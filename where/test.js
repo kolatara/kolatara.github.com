@@ -20,6 +20,32 @@ var redBranchBraintree = [];
 var markers = [];
 var closest = new Object;
 var yourData;
+var trainKeys {
+	N: "Northbound",
+	S: "Southbound",
+	RALE: "Alewife Station",
+	RDAV: "Davis Station",
+	RPOR: "Porter Square Station",
+	RHAR: "Harvard Square Station",
+	RCEN: "Central Square Station",
+	RKEN: "Kendall/MIT Station",
+	RMGH: "Charles/MGH Station",
+	RPRK: "Park St. Station",
+	RDTC: "Downtown Crossing Station",
+	RSOU: "South Station",
+	RBRO: "Broadway Station",
+	RAND: "Andrew Station",
+	RJFK: "JFK/UMass Station",
+	RSAV: "Savin Hill Station",
+	RFIE: "Fields Corner Station",
+	RSHA: "Shawmut Station",
+	RASH: "Ashmont Station",
+	RNQU: "North Quincy Station",
+	RWOL: "Wollaston Station",
+	RQUC: "Quincy Center Station",
+	RQUA: "Quincy Adams Station",
+	RBRA: "Braintree Station"
+	};
 //var boxText;
 
 //var trainKey = {N:"Northbound", S:"Southbound"};
