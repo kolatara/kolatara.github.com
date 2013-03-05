@@ -224,7 +224,7 @@ function parseData(data) {
 					boxText.setAttribute("class", "infobox");
 					boxText = '<b>' + this.title + '</b>';
 					boxText += '<table id="schedule"><tr><th>Direction</th><th>Time to Arrival</th></tr>';
-					for(int t = 0; t < trains.length; t++) {
+					for(var t = 0; t < trains.length; t++) {
 						if(trainKeys[trains[t]["PlatformKey"].substring(0,4)] 
 						== markers[m]['title'] && trains[t]["InformationType"] == "Predicted") {
 					console.log(trains[t]["PlatformKey"].substring(0,4));
