@@ -163,11 +163,12 @@ a:link, a:visited {
 
 .currentLink{
 	color:#D10F69;
-	font-family:fun;
 }
 
 .current{
 	background-color:#F5E9D0;
+	font-family: fun;
+	font-size:15px;
 }
 
 .notcurr:hover{
@@ -175,6 +176,7 @@ a:link, a:visited {
 	border-top: 1px solid #FAF1DE;
 	border-bottom: 1px solid #FAF1DE;
 	font-family: fun;
-	font-size:18px;
+	font-size:15px;
 }
+
 
