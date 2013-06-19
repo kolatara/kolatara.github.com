@@ -1,0 +1,180 @@
+body,html{
+	height:100%;
+	overflow:hidden;
+	background-color:#FAF1DE;
+	margin-left:10px;
+}
+@font-face {
+	font-family: fun;
+	src: url('fonts/fun.otf');
+}
+
+@font-face {
+	font-family: serious;
+	src: url('fonts/Light.otf');
+}
+
+@font-face {
+	font-family: light;
+	src: url('fonts/UltraLight.otf');
+}
+
+h1 {
+	font-family: fun;
+	font-size:20px;
+}
+
+#blogTitle span {
+	display:block;
+	line
+}
+.funText {
+	font-family: fun;
+}
+
+.seriousText {
+	font-family: serious;
+}
+
+.lightText {
+	font-family: light;
+}
+
+#header .funText {
+	font-size: 34px;
+	line-height:35px;
+	text-transform:uppercase;
+}
+
+#blogSubtitle {
+	margin-top:-10px;
+	font-size: 15px;
+	font-family:light;
+	word-spacing:0.5px;
+}
+
+#left {
+	margin-left:13px;
+}
+
+#header{
+	background-color:#FCFAF5;
+	padding-top:15px;
+	text-align:center;
+	position:fixed;
+} 
+
+#sidebar {
+	background-color:#FCFAF5;
+	height:100%;
+	margin-top:165px;
+	position:fixed;
+	color:#077087;
+}
+
+#header, #sidebar {
+	width:220px;
+}
+
+#content{
+	width: 700px;
+	margin-left:260px;
+}
+
+#toppic{
+	position: absolute;
+	z-index:-1;
+	min-width:700px;
+}
+
+#contentPane {
+	position:absolute;
+	z-index:1;
+	background-color:#FCFAF5;
+	margin-top: -53px;
+	width:700px;
+	height:100%;
+
+}
+
+#contentheader p{
+	color:#F5F2EB;
+	position:absolute;
+	z-index:2;
+	margin-left:20px;
+}
+
+#mainType {
+	margin-top:-130px;
+	font-size:50px;
+}
+
+#mainType .seriousText{
+	margin-left:-5px;
+	font-size:57px;
+}
+
+#subhead{
+	margin-top:-177px;
+	font-size:14px;
+	padding-left:2px;
+}
+
+#sidebar ul{
+	border-top: 1.5px solid #FAF1DE;
+	margin-top:-7px;
+	margin-left:0px;
+	list-style-type:none;
+	font-size:20px;
+}
+
+#sidebar li{
+	padding-left:40px;
+	line-height:40px;
+}
+
+#sidebar a:hover{
+}
+
+#sidebar h1{
+	margin-left:25px;
+}
+
+#header{
+	display:block;
+}
+#header:hover {
+	background-image:url('elephant.jpg');
+	background-size: 220px auto;
+	opacity:0.4;
+	color:#F5F2EB;
+/*	background-color:#F5E9D0;
+	border: 1px solid #D10F69;
+	border-top: none;*/
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+a:link, a:visited {
+	color:#D10F69;
+}
+
+.currentLink{
+	color:#D10F69;
+	font-family:fun;
+}
+
+.current{
+	background-color:#F5E9D0;
+}
+
+.notcurr:hover{
+	background-color:#F5E9D0;
+	border-top: 1px solid #FAF1DE;
+	border-bottom: 1px solid #FAF1DE;
+	font-family: fun;
+	font-size:18px;
+}
+
