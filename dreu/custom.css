@@ -1,0 +1,147 @@
+@font-face {
+    font-family: title;
+    src: url(fonts/ostrich.otf);
+}
+
+@font-face {
+    font-family: head_1;
+    src: url(fonts/basic.ttf);
+}
+
+@font-face {
+    font-family: text;
+    src: url(fonts/Light.otf);
+}
+
+* {
+    padding: 0px;
+    margin: 0px
+}
+
+body {
+    font-size: 100%;
+    background-color: #F5F1DE;
+}
+
+p {
+    margin-top: 10px;
+    line-height: 120%;
+}
+
+a {
+    display:block;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: title;
+    font-size: 250%;
+    color: #D1155A;
+}
+
+h2 {
+    font-family: title;
+    font-size: 130%;
+    color: #2FC0D4;
+    padding-top: 5px;
+}
+
+.header {
+    height: 20%;
+    width: 100%;
+    display: table;
+    margin-top: 1%;
+}
+
+.main_title {
+    font-family: title;
+    font-size: 400%;
+    color: white;
+    background-color: #D1155A;
+    width: 60%;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 3%;
+}
+
+.sub_title {
+    font-family: head_1;
+    font-size: 150%;
+    color: white;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #EBCE10;
+}
+
+.nav {
+    font-family: head_1;
+    font-size: 200%;
+    list-style-type: none;
+    float:left;
+    width: 215px;
+}
+
+.nav a {
+    background-color: #2FC0D4;
+    color: white;
+    height: 40px;
+    padding-top: 15px;
+    padding-left: 15px;
+    margin-top: 22px;
+}
+
+.nav a:hover {
+    background-color: #F5D908;
+    color: white;
+}
+
+.nav .clicked {
+    background-color: #F5F1DE;
+    border-style: solid;
+    border-left: none;
+    border-width: 1px;
+    border-color: #2FB0D4;
+    color: #2FB0D4;
+}
+
+.nav .clicked:hover {
+    background-color: #F5F1DE;
+    border-color: #D1155A;
+    color: #D1155A;
+}
+
+.text {
+    float: left;
+    margin-top: 22px;
+    background-color: white;
+    margin-left: 30px;
+    padding-right: 50px;
+    width: 65%;
+    padding-left: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-width: 1px;
+    border-color: #EBD110;
+    border-style: solid;
+    font-family: text;
+}
+
+.text p {
+    margin-top: 25px;
+    line-height: 150%;
+
+}
+
+.text h1 {
+    margin-bottom: 30px;
+}
+
+.mentorcreds {
+    margin-top: -15px;
+}
+
+.bottom {
+    margin-bottom: 20px;
+}
