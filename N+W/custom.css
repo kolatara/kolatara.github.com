@@ -1,0 +1,99 @@
+@font-face {
+    font-family: word;
+    src: url(fonts/Serif.ttf);
+}
+
+@font-face {
+    font-family: num;
+    src: url(fonts/Sans.ttf);
+}
+
+@font-face {
+    font-family: norm;
+    src: url(fonts/Normal.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color:#1B1464;
+}
+
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    background-color:#F29C16;
+}
+
+.center {
+    text-align: center;
+}
+
+.inline {
+    display: inline-block;
+}
+
+.num {
+    font-family:num;
+}
+
+.numbers {
+    font-family:num;
+    font-size: 40px;
+}
+
+.words {
+    font-family:word;
+    font-size: 45px;
+}
+
+.plus {
+    font-family: norm;
+    font-size: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.inactive{
+    color: white;
+}
+
+.activated {
+    color: #1B1464;
+}
+
+.post {
+    width: 230px;
+    height: 230px;
+    background-image: url("images/women.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.latest {
+    width: 100%;
+}
+
+.stats {
+    background-color: white;
+    color: #1B1464;
+    margin-top: 10px;
+    padding: 15px;
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.date {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.num-word{
+    color:white;
+}
